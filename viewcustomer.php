@@ -37,8 +37,10 @@
     <script type='text/javascript' src='js/charts.js'></script>
     <script type='text/javascript' src='js/plugins.js'></script>
     
+    <script type='text/javascript' src='custom_js/customer.js'></script>
+    
 </head>
-<body>
+<body onload="showCustomer();">
     <div class="header">
     <h4 style="color:white;margin-top: 9px;margin-left: 10px;">Franchise</h4>
     <ul class="header_menu">
@@ -147,7 +149,7 @@
                 <a href="#">Simple Admin</a><span class="divider">></span>
             </li>
             <li class="active">
-                Report
+                Edit customer
             </li>
         </ul>
     </div>
@@ -155,135 +157,23 @@
         <div class="row-fluid">
             <div class="span12">
                 <div class="head">
-                    <div class="isw-documents"></div>
-                    <h1>Search report</h1>
-                    <div class="clear"></div>
-                </div>
-                <div class="block-fluid">
-                    <div class="row-form">
-                        <div class="span3">
-                            Date From
-                        </div>
-                        <div class="span4">
-                            <div class="boxWrap sitemapArea">
-                                <div class="datepickerBasics span6 input-append date">
-                                    <input type="text" class="js_dateFrom datepickInput span2" 
-                                        id="datepick_inc1" placeholder="From">
-                                    <label for="datepick_inc1" class="datepickLeft add-on">
-                                        <span><i class="icon-calendar"></i></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="row-form">
-                        <div class="span3">
-                            Date To
-                        </div>
-                        <div class="span4">
-                            <div class="boxWrap sitemapArea">
-                                <div class="datepickerBasics span6 input-append date">
-                                    <input type="text" class="js_dateFrom datepickInput span2" 
-                                        id="datepick_inc2" placeholder="To">
-                                    <label for="datepick_inc2" class="datepickLeft add-on">
-                                        <span><i class="icon-calendar"></i></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="row-form">
-                        <div class="span3">
-                            Sort by
-                        </div>
-                        <div class="span3">
-                            <select name="select">
-                                <option value="0">choose a option...</option>
-                                <option value="1">Subrub</option>
-                            </select>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="row-form">
-                        <div class="span3"></div>
-                        <div class="span9">
-                            <button class="btn" type="button">
-                                Search
-                            </button>
-                            <button class="btn btn-warning" type="button">
-                                Clear
-                            </button>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="dr">
-            <span></span>
-        </div>
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="head">
                     <div class="isw-grid"></div>
-                    <h1>Results</h1>
+                    <h1>All customers</h1>
                     <div class="clear"></div>
                 </div>
                 <div class="block-fluid">
                     <table cellpadding="0" cellspacing="0" width="100%" class="table">
-                        <thead>
+                        <tbody id="customer-table">
                             <tr>
-                                <th width="15%">Client</th>
-                                <th width="25%">Address</th>
-                                <th width="10%">Phone</th>
-                                <th width="15%">Date</th>
-                                <th width="20%">Service</th>
-                                <th width="45%">Source</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Rakhsha Anand</td>
-                                <td>22 Kearney Awe Altone 3018 VIC</td>
-                                <td>0402373405</td>
-                                <td>22/03/2014</td>
-                                <td>CLEAN VACATE CONNECTION</td>
-                                <td>Newspaper Local</td>
-                            </tr>
-                            <tr>
-                                <td>Karen Chadwick</td>
-                                <td>16 Caradon Dr Truganha 3029 VIC</td>
-                                <td>0402373405</td>
-                                <td>22/03/2014</td>
-                                <td>CLEAN REGULAR</td>
-                                <td>Jim's User</td>
-                            </tr>
-                            <tr>
-                                <td>Kim P.Tran</td>
-                                <td>16 Caradon Dr Truganha 3029 VIC</td>
-                                <td>0402373405</td>
-								<td>25/03/2014</td>
-                                <td>CLEAN REGULAR</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Sandra Nind</td>
-                                <td>16 Caradon Dr Truganha 3029 VIC</td>
-                                <td>0402373405</td>
-								<td>25/03/2014</td>
-                                <td>CLEAN REGULAR</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td colspan="5"><b>Total: 4</b></td>
-								<td>&nbsp;</td>
+                        	
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="dr">
+            <span></span>
         </div>
     </div>
 </div>

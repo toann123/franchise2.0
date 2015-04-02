@@ -42,7 +42,47 @@ function submit_addcustomer() {
 			alert(data);
 		});
 	}
+}
+
+function showCustomer() {
+
+	var url = "php/controller/showcustomer.php";
+	
+	html_str = "";
+
+	$.post(url, function(data) {
+		var arr = JSON.parse(data);
+		
+		var table_header = "<thead>"+
+					  			"<tr>"+
+					 				"<th>" + "Full name" + "</th>"+
+					 				"<th>" + "Company name" + "</th>"+
+					 				"<th>" + "Phone number" + "</th>"+
+					 				"<th>" + "Mobile number" + "</th>"+
+					 				"<th>" + "Email" + "</th>"+
+					 				"<th>" + "Address" + "</th>"+
+					 				"<th><a href='#'>" + "View Leads" + "</a></th>"+
+				 				 "</tr>";  
+						   "</thead>";
+		var html_str = ""; //array of customers
+			
+		for(var i = 0; i <arr.length; i++) {
+			
+			 html_str += "<tr>"+
+			 				"<td><a href='editpick.php'>" + arr[i].customer_name + "</a></td>"+
+			 				"<td>" + arr[i].company_name + "</td>"+
+			 				"<td>" + arr[i].phone + "</td>"+
+			 				"<td>" + arr[i].mobile + "</td>"+
+			 				"<td>" + arr[i].email + "</td>"+
+			 				"<td>" + arr[i].address + "</td>"+
+			 				"<td><a href='#'>" + "View Leads" + "</a></td>"+
+		 				 "</tr>";
+			
+		}
+		$("#customer-table").html(table_header + html_str);
+	 });
 	
 }
+
 
 

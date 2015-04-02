@@ -117,7 +117,7 @@
                     <a href="addcustomer.php"> <span class="icon-th"></span><span class="text">Add</span> </a>
                 </li>
                 <li>
-                    <a href="editcustomer.php"> <span class="icon-th-large"></span><span class="text">List</span> </a>
+                    <a href="viewcustomer.php"> <span class="icon-th-large"></span><span class="text">List</span> </a>
                 </li>
             </ul>
         </li>

@@ -152,6 +152,30 @@ class customer {
 	public function showCustomer() {
 		$db = new DBConnect();
 		
+		//sql query
+		$sql = "SELECT * FROM customer ORDER BY postcode";
+		$query = $db->getDBConnect()->query($sql);
+		
+		$customer_array = array();
+		
+		if ($query -> num_rows > 0) {//found customers
+			while ($result = $query -> fetch_object()) {
+				$customer_name = $result->firstname . " " . $result->lastname;
+				$company_name = $result->branch_name;
+				$address = $result->address . " " . $result->suburb . " " . $result->postcode . " " . $result->state;
+				$phone = $result->phone;
+				$mobile = $result->mobile;
+				$email = $result->email;
+				
+				array_push($customer_array, array("customer_name"=>$customer_name,"address"=>$address,"mobile"=>$mobile, "company_name"=>$company_name, "email"=>$email,"phone"=>$phone));					
+			}
+			
+			return json_encode($customer_array);	
+			
+		} else { //no leads found
+			
+			return "no rows found";
+		}
 		
 		
 	}
