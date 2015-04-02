@@ -189,6 +189,18 @@ function showLead() {
 	$.post(url, function(data) {
 		var arr = JSON.parse(data);
 		
+		var table_header = "<thead>"+
+					  			"<tr>"+
+					 				"<th>" + "Full name" + "</th>"+
+					 				"<th>" + "Address" + "</th>"+
+					 				"<th>" + "Mobile number" + "</th>"+
+					 				"<th>" + "Service name" + "</th>"+
+					 				"<th>" + "Price" + "</th>"+
+					 				"<th>" + "Detail" + "</th>"+
+					 				"<th>" + "View Leads" + "</th>"+
+				 				 "</tr>";  
+						   "</thead>";
+		
 		var html_str = ""; //array of customers and leads
 		
 		for(var i = 0; i <arr.length; i++) {
@@ -198,13 +210,13 @@ function showLead() {
 			 				"<td>" + arr[i].address + "</td>"+
 			 				"<td>" + arr[i].mobile + "</td>"+
 			 				"<td>" + arr[i].service_name + "</td>"+
-			 				"<td>" + arr[i].price + "</td>"+
+			 				"<td>" + "$" +arr[i].price + " (inc GST/VAT)" + "</td>"+
 			 				"<td><a href='#'>"+"detail"+"</a></td>"+
 			 				"<td>"+"Set non-regular"+"</td>"+
 		 				 "</tr>";
 			
 		}
-		$("#lead-table").html(html_str);
+		$("#lead-table").html(table_header + html_str);
 	});
 	
 }
