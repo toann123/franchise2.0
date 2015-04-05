@@ -144,7 +144,8 @@ GlobalConfig::$ROUTE_MAP = array(
 	'DELETE:api/customer/(:num)' => array('route' => 'Customer.Delete', 'params' => array('id' => 2)),
 		
 	// Lead
-	'GET:showlead' => array('route' => 'showlead.SingleView'),
+	'GET:showlead' => array('route' => 'Lead.shownewlist'),
+	//'GET:showlead' => array('route' => 'lead.ShowListView'),
 	'GET:leads' => array('route' => 'Lead.ListView'),
 	'GET:lead/(:num)' => array('route' => 'Lead.SingleView', 'params' => array('id' => 1)),
 	'GET:api/leads' => array('route' => 'Lead.Query'),

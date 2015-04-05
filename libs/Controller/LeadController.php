@@ -42,6 +42,10 @@ class LeadController extends AppBaseController
 		$this->Render();
 	}
 	
+	public function shownewlist() {
+		$this->render("ShowLeadListView.tpl");
+	}
+	
 	public function AddListView()
 	{
 		//get service code list
