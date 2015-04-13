@@ -195,7 +195,7 @@ class Lead {
         $sql = "DELETE FROM lead WHERE id = $id";
 		$query = $db -> getDBConnect() -> query($sql);
         
-        if($qery) {
+        if($query) {
             return "Lead deleted successfully";
         } else {
             return "error lead not deleted";

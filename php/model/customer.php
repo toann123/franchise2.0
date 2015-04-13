@@ -160,6 +160,7 @@ class customer {
 		
 		if ($query -> num_rows > 0) {//found customers
 			while ($result = $query -> fetch_object()) {
+                $id = $result->id;
 				$customer_name = $result->firstname . " " . $result->lastname;
 				$company_name = $result->branch_name;
 				$address = $result->address . " " . $result->suburb . " " . $result->postcode . " " . $result->state;
@@ -167,7 +168,7 @@ class customer {
 				$mobile = $result->mobile;
 				$email = $result->email;
 				
-				array_push($customer_array, array("customer_name"=>$customer_name,"address"=>$address,"mobile"=>$mobile, "company_name"=>$company_name, "email"=>$email,"phone"=>$phone));					
+				array_push($customer_array, array("id"=>$id, "customer_name"=>$customer_name,"address"=>$address,"mobile"=>$mobile, "company_name"=>$company_name, "email"=>$email,"phone"=>$phone));					
 			}
 			
 			return json_encode($customer_array);	
@@ -179,6 +180,19 @@ class customer {
 		
 		
 	}
+    
+    public function deleteCustomer($id) {
+        $db = new DBConnect();
+
+        $sql = "DELETE FROM customer WHERE id = $id";
+        $query = $db -> getDBConnect() -> query($sql);
+
+        if($query) {
+            return "Customer deleted successfully";
+        } else {
+            return "error customer not deleted";
+        } 
+    }
 
 }
 
