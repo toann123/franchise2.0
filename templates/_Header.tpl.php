@@ -187,7 +187,7 @@
                     <a href="/franchise2/addleads"> <span class="icon-th"></span><span class="text">Add</span> </a>
                 </li>
                 <li>
-                    <a href="/franchise2/showlead.php"> <span class="icon-th-large"></span><span class="text">List</span> </a>
+                    <a href="/franchise2/leads"> <span class="icon-th-large"></span><span class="text">List</span> </a>
                 </li>
             </ul>
         </li>
@@ -204,10 +204,10 @@
             <a href="#"> <span class="isw-list"></span><span class="text">Customer</span> </a>
             <ul>
                 <li>
-                    <a href="addcustomer.php"> <span class="icon-th"></span><span class="text">Add</span> </a>
+                    <a href="/franchise2/addcustomer"> <span class="icon-th"></span><span class="text">Add</span> </a>
                 </li>
                 <li>
-                    <a href="viewcustomer.php"> <span class="icon-th-large"></span><span class="text">List</span> </a>
+                    <a href="/franchise2/customers"> <span class="icon-th-large"></span><span class="text">List</span> </a>
                 </li>
             </ul>
         </li>		

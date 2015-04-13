@@ -198,6 +198,8 @@ function showLead() {
 					 				"<th>" + "Price" + "</th>"+
 					 				"<th>" + "Detail" + "</th>"+
 					 				"<th>" + "View Leads" + "</th>"+
+                                    "<th>" + "Edit" + "</th>" +
+                                    "<th>" + "Delete" + "</th>" +
 				 				 "</tr>";  
 						   "</thead>";
 		
@@ -213,10 +215,27 @@ function showLead() {
 			 				"<td>" + "$" +arr[i].price + " (inc GST/VAT)" + "</td>"+
 			 				"<td><a href='#'>"+"detail"+"</a></td>"+
 			 				"<td>"+"Set non-regular"+"</td>"+
+                            "<td><a href='#'>"+"Update"+"</a></td>"+
+			 				"<td><a href='/franchise2/leads' onclick='deleteLead(" + arr[i].id + ");'>"+"Delete"+"</a></td>"+
 		 				 "</tr>";
 			
 		}
 		$("#lead-table").html(table_header + html_str);
-	});
-	
+	});	
+}
+
+function deleteLead(id) {
+    var url = "php/controller/deletelead.php?id="+id;
+    
+    var confirmDelete = confirm("Are you sure you want to delete lead: " + id);
+    
+    if(confirmDelete == true) {
+        $.post(url,
+            function(data) {
+                alert(data);
+            }
+        );
+    }
+    
+   
 }

@@ -161,13 +161,14 @@ class Lead {
 	public function showLead() {
 		$db = new DBConnect();
 		
-		$sql = "SELECT * FROM lead l, customer c, service s where l.customer_id = c.id AND l.service_id = s.id";
+		$sql = "SELECT *, l.id FROM lead l, customer c, service s where l.customer_id = c.id AND l.service_id = s.id";
 		$query = $db -> getDBConnect() -> query($sql);
 		
 		$lead_array = array();
 	
 		if ($query -> num_rows > 0) {//found leads
 			while ($result = $query -> fetch_object()) {
+                $id = $result->id;
 				$customer_name = $result->firstname . " " . $result->lastname;
 				$address = $result->address . " " . $result->suburb . " " . $result->postcode . " " . $result->state;
 				$mobile = $result->mobile;
@@ -175,7 +176,7 @@ class Lead {
 				$price = $result->price;
 				
 				
-				array_push($lead_array, array("customer_name"=>$customer_name,"address"=>$address,"mobile"=>$mobile,"service_name"=>$service_name,"price"=>$price));					
+				array_push($lead_array, array("id"=>$id, "customer_name"=>$customer_name,"address"=>$address,"mobile"=>$mobile,"service_name"=>$service_name,"price"=>$price));					
 			}
 			
 			
@@ -187,7 +188,19 @@ class Lead {
 		return json_encode($lead_array);
 		
 	}
-
+    
+    public function deleteLead($id) {
+        $db = new DBConnect();
+        
+        $sql = "DELETE FROM lead WHERE id = $id";
+		$query = $db -> getDBConnect() -> query($sql);
+        
+        if($qery) {
+            return "Lead deleted successfully";
+        } else {
+            return "error lead not deleted";
+        } 
+    }
 }
 
 ?>

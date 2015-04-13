@@ -142,7 +142,10 @@ GlobalConfig::$ROUTE_MAP = array(
 	'GET:api/customer/(:num)' => array('route' => 'Customer.Read', 'params' => array('id' => 2)),
 	'PUT:api/customer/(:num)' => array('route' => 'Customer.Update', 'params' => array('id' => 2)),
 	'DELETE:api/customer/(:num)' => array('route' => 'Customer.Delete', 'params' => array('id' => 2)),
-		
+	
+    // add Customer
+	'GET:addcustomer' => array('route' => 'Customer.AddListView'),
+    
 	// Lead
 	'GET:showlead' => array('route' => 'showlead.SingleView'),
 	'GET:leads' => array('route' => 'Lead.ListView'),
@@ -155,6 +158,7 @@ GlobalConfig::$ROUTE_MAP = array(
 	
 	// add Lead
 	'GET:addleads' => array('route' => 'Lead.AddListView'),
+    'GET:deletelead' => array('route' => 'Lead.DeleteLead'),
 		
 	// Post
 	'GET:posts' => array('route' => 'Post.ListView'),

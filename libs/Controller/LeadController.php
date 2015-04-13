@@ -39,7 +39,7 @@ class LeadController extends AppBaseController
 	 */
 	public function ListView()
 	{
-		$this->Render();
+		$this->Render("LeadListView.tpl");
 	}
 	
 	public function AddListView()
@@ -65,6 +65,10 @@ class LeadController extends AppBaseController
 		
 		$this->Render("AddLeadListView.tpl");
 	}
+    
+    public function DeleteLead() {
+        $this->Render("LeadListView.tpl");
+    }
 
 	/**
 	 * API Method queries for Lead records and render as JSON

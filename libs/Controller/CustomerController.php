@@ -37,7 +37,12 @@ class CustomerController extends AppBaseController
 	 */
 	public function ListView()
 	{
-		$this->Render();
+		$this->Render("CustomerListView.tpl");
+	}
+    
+    public function AddListView()
+	{
+		$this->Render("AddCustomerListView.tpl");
 	}
 
 	/**
